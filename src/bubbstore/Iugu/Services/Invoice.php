@@ -85,4 +85,20 @@ class Invoice extends BaseRequest implements InvoiceInterface
 
         return $this->fetchResponse();
     }
+
+
+    /**
+     * duplicate
+     *
+     * Cancela a fatura e gera a Segunda via. 
+     *
+     * @param  int $id
+     * @return array
+     */
+    public function duplicate($id)
+    {
+        $this->sendApiRequest('PUT', sprintf('invoices/%s/duplicate', $id));
+
+        return $this->fetchResponse();
+    }
 }
